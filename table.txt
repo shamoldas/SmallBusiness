@@ -1,0 +1,48 @@
+CREATE TABLE users (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE content (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(250) NOT NULL,
+    category varchar(250) NOT null,
+    subcat varchar(250) NOT null,
+    message text,
+    file_name varchar(255),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at datetime DEFAULT CURRENT_TIMESTAMP
+);
+
+
+
+CREATE TABLE IF NOT EXISTS `profileuser` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` char(40) NOT NULL,
+  `email` varchar(40),
+  `mobile` bigint(11) ,
+  `gender` varchar(40),
+  `occupation` varchar(40),
+  `image` varchar(50),
+  `dob` date ,
+  `bio` varchar(20) ,
+  `social` varchar(10),
+  `regid` varchar(20),
+  PRIMARY KEY (`id`),  
+  UNIQUE KEY `email` (`email`),
+  FULLTEXT KEY `name` (`name`)
+);
+
+
+CREATE TABLE admin (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL ,
+    usertype VARCHAR(50) NOT NULL ,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
